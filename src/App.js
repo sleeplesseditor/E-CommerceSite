@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
 
 import HomePage from './Pages/HomePage/HomePage';
@@ -7,7 +7,9 @@ import HomePage from './Pages/HomePage/HomePage';
 function App() {
   return (
     <div >
-      <Route exact path="/" component={HomePage} />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+      </Switch>
     </div>
   );
 }
