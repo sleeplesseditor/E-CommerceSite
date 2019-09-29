@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { auth } from '../../Firebase/Firebase.utils';
 import './Header.scss';
 import CartIcon from '../CartIcon/CartIcon';
+import CartDropdown from '../CartDropdown/CartDropdown';
 import { ReactComponent as Logo } from '../../Assets/crown.svg';
 
 const Header = ({ currentUser }) => (
@@ -28,6 +29,7 @@ const Header = ({ currentUser }) => (
             )}
             <CartIcon />
         </div>
+        <CartDropdown />
     </div>
 );
 
