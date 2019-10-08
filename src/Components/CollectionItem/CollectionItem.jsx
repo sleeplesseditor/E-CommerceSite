@@ -4,23 +4,26 @@ import Button from '../Button/Button';
 import { addItem } from '../../Redux/Cart/CartActions';
 import './CollectionItem.scss';
 
-const CollectionItem = ({id, name, price, imageUrl, addItem}) => (
-    <div className='collection-item'>
-        <div 
-            className='image'
-            style={{
-                backgroundImage: `url(${imageUrl})`
-            }}
-        />
-        <div className='collection-footer'>
-            <span className='name'>{name}</span>
-            <span className='price'>{price}</span>
+const CollectionItem = ({item, addItem}) => {
+    const { imageUrl, name, price } = item;
+    return (
+        <div className='collection-item'>
+            <div 
+                className='image'
+                style={{
+                    backgroundImage: `url(${imageUrl})`
+                }}
+            />
+            <div className='collection-footer'>
+                <span className='name'>{name}</span>
+                <span className='price'>{price}</span>
+            </div>
+            <Button inverted onClick={() => addItem(item)}>
+                ADD TO CART
+            </Button>
         </div>
-        <Button inverted>
-            ADD TO CART
-        </Button>
-    </div>
-);
+    )
+};
 
 const mapDispatchToProps = dispatch => ({
     addItem: item => dispatch(addItem(item))
