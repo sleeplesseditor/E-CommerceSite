@@ -10,6 +10,7 @@ import Header from './Components/Header/Header';
 import HomePage from './Pages/HomePage/HomePage';
 import ShopPage from './Pages/ShopPage/ShopPage';
 import AuthenticationPage from './Pages/AuthenticationPage/AuthenticationPage';
+import CheckoutPage from './Pages/CheckoutPage/CheckoutPage';
 import { auth, createUserProfileDocument } from './Firebase/Firebase.utils';
 
 class App extends Component {
@@ -46,6 +47,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
+          <Route exact path="/checkout" component={CheckoutPage} />
           <Route exact path="/signin" render={() => 
               this.props.currentUser ? (<Redirect to='/' />) : (<AuthenticationPage />)} 
           />
