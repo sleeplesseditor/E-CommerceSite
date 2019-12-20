@@ -11,30 +11,9 @@ import HomePage from './Pages/HomePage/HomePage';
 import ShopPage from './Pages/ShopPage/ShopPage';
 import AuthenticationPage from './Pages/AuthenticationPage/AuthenticationPage';
 import CheckoutPage from './Pages/CheckoutPage/CheckoutPage';
-import { auth, createUserProfileDocument } from './Firebase/Firebase.utils';
 
 class App extends Component {
   unsubscribeFromAuth = null 
-
-  componentDidMount() {
-    const { setCurrentUser } = this.props; 
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
-
-        userRef.onSnapshot(snapShot => {
-          setCurrentUser({
-              id: snapShot.id,
-              ...snapShot.data()
-            });
-        });
-      }
-
-      else {
-        setCurrentUser(userAuth);
-      }
-    })
-  }
 
   componentWillUnmount() {
     this.unsubscribeFromAuth();
