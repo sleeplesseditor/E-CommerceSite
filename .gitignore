@@ -4,9 +4,11 @@ firebase.config.js
 config.js
 
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.js
+.env
+/client/node_modules
 
 # testing
 /coverage
