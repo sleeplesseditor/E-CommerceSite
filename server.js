@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
 
 app.listen(port, error => {
     if(error) throw error;
-    console.log(`Server is running on Port${port}`);
+    console.log(`Server is running on Port ${port}`);
 });
 
 app.post('/payment', (req, res) => {
